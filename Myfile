@@ -1,0 +1,51 @@
+package pkg1;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+
+public class Firstselenium {
+
+	public static void main(String[] args)throws InterruptedException {
+		// TODO Auto-generated method stub
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://healthfarmnutrition.com/");
+		driver.manage().window().maximize();
+		Thread.sleep(3000);
+		((JavascriptExecutor) driver).executeScript("document.querySelector(\"#shopify-section-popup > promo-popup > div.promo-popup.is-active.show-image > div.popup-wrapper > button > span\").click();");
+		Thread.sleep(3000);
+    ((JavascriptExecutor) driver).executeScript("document.querySelector(\"body > div.vtl-mf-main-widget > div > div.vtl-mf-main-widget__actions > a.cancel\").click();");
+		Thread.sleep(3000);
+		driver.findElement(By.xpath("//*[@id=\"shopify-section-header\"]/sticky-header/header/div[2]/a/span[2]")).click();
+		Thread.sleep(3000);
+		driver.findElement(By.xpath("//*[@id=\"CustomerEmail\"]")).click();
+		Thread.sleep(3000);
+		driver.findElement(By.xpath("//*[@id=\"CustomerPassword\"]")).click();
+		Thread.sleep(3000);
+		driver.findElement(By.xpath("//*[@id=\"customer_login\"]/button")).click();
+	    Thread.sleep(3000);
+		Actions mouse = new Actions(driver);
+	    WebElement electronics = driver.findElement(By.xpath("//*[@id=\"shopify-section-header\"]/sticky-header/header/nav/ul/li[1]/mega-menu/a/span"));
+	    mouse.moveToElement(electronics).click().build().perform();
+	    Thread.sleep(3000);
+	    driver.findElement(By.xpath("//*[@id=\"shopify-section-template--16695470686440__main\"]/div/ul/li[2]/a/div[2]/h3")).click();
+	    Thread.sleep(3000);
+	    driver.findElement(By.xpath("//*[@id=\"product-grid\"]/li[1]/div/use-animate/a/div/img[2]")).click();
+	    Thread.sleep(3000);
+       driver.findElement(By.xpath("//*[@id=\"ProductInfo-template--16695471112424__main\"]/variant-radios/fieldset[1]/label[4]")).click();
+	    Thread.sleep(3000);
+	    ((JavascriptExecutor) driver).executeScript("window.scrollBy(0,500);");
+	    Thread.sleep(3000);
+	    driver.findElement(By.xpath("//*[@id=\"product-form-template--16695471112424__main\"]/div/button")).click();
+	    Thread.sleep(3000);
+	    driver.findElement(By.xpath("//*[@id=\"simpl_buynow-button\"]")).click();
+	    Thread.sleep(10000);
+	    //((JavascriptExecutor) driver).executeScript("document.querySelector(\"#checkout-frontend > div.container.svelte-f2cp83 > div.nav.svelte-1ibksqn.journey-status > div > div.nav_titlecontent.svelte-1ibksqn > div.navtitle_action.svelte-1ibksqn > div > img\")");
+	    driver.close();
+	    
+	}
+
+}
